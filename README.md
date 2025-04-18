@@ -5,7 +5,7 @@ This project aims to predict whether a Polish company went bankrupt in 2009 base
 📁 Dataset Overview
 Source: poland-bankruptcy-data-2009.json
 
-Objective: Predict bankruptcy (binary classification: 0 = No, 1 = Yes)
+Objective: Predict bankruptcy (bool classification: 0 = False, 1 = True)
 
 Imbalance: Approx. 90% non-bankrupt vs. 10% bankrupt
 
@@ -22,7 +22,6 @@ Removed feat_37 due to excessive missing values
 
 Replaced all other missing values with the median of the respective feature
 
-Dropped rows with any remaining NaN values
 
 Target column (bankrupt) has no missing values
 
@@ -55,10 +54,6 @@ For each model and resampling strategy:
 python
 Copy
 Edit
-for m in [model_reg, model_under, model_over, model_smote]:
-    acc_train = m.score(X_train, y_train)
-    acc_test = m.score(X_test, y_test)
-However, we observed that:
 
 High accuracy does not imply a good model in imbalanced datasets.
 
